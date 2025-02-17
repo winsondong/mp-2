@@ -23,9 +23,14 @@ export default function App(){
  
                 // need to convert into structured data so it matches my Dog TypeScript interface
                 const dogArray: Dog[] = message.map((url, index) => ({
-                    id: index,
+                    id: index + 1, // start index at 1 instead of 0
                     image: url,
-                    breed: url.split("/")[4], // getting the breed from URL since we need 3 fields
+                    breed: url // getting the breed from URL since we need 3 fields
+                        .split("/")[4]
+                        .split("-")
+                        .reverse()
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))  
+                        .join(" ")
                 }));
                 setData(dogArray);
             }

@@ -44,9 +44,9 @@ export default function DogGallery(props: { data: Dog[] }) {
             <Container>
                 {props.data.map((dog) => (
                     <Card key={dog.id}>
-                        <h2>Awesome Dog #{dog.id + 1}</h2>
+                        <h2>Awesome Dog #{dog.id}</h2>
                         <DogImage src={dog.image} alt={dog.breed} />
-                        <h3>Awesome Breed: {dog.breed}</h3>
+                        <h3>Awesome Breed: <br/>{dog.breed}</h3>
                     </Card>
                 ))}
             </Container>
